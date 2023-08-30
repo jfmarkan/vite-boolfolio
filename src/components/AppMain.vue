@@ -4,11 +4,11 @@
             Latest Projects
         </h1>
         <div class="projects">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+            <div class="card" v-for="project in projects">
+                <img src="" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">{{project.title}}</h5>
+                    <p class="card-text">{{project.repo}}</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
@@ -33,8 +33,8 @@ export default {
                 params: {}
             })
             .then((response) => {
-                console.log(response.data)
-                this.projects = response.data;
+                console.log(response.data.data)
+                this.projects = response.data.data;
             })
             .catch(function (error) {
                 console.log(error);
